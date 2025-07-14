@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-sjv)(!d6cj*%$@(vd(%0-=$b#l90&ib2(zrhy@rp63)37s()bx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] # Libera todos os IPS
 
 
 # Application definition
