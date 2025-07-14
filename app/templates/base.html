@@ -1,86 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}Balliego Multimarcas{% endblock %}</title>
+
     <style>
+      :root {
+        --primary-color: #3b82f6;
+        --secondary-color: #f9fafb;
+        --text-color: #111827;
+        --muted-color: #6b7280;
+        --nav-bg: #ffffff;
+        --footer-bg: #f3f4f6;
+      }
+
       body {
-        font-family: "Open Sans", sans-serif;
-        background-color: #f7f7f7;
-        color: #333;
+        font-family: "Inter", sans-serif;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
         margin: 0;
         padding: 0;
       }
 
       header {
-        background-color: #0096c7;
-        color: #fff;
-        text-align: center;
-      }
-
-      footer {
-        background-color: #ccc;
-        color: #333;
-        padding: 20px;
-        text-align: center;
+        background-color: var(--nav-bg);
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
       }
 
       nav {
-        background-color: #0096c7;
-        color: #fff;
-        height: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
 
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
+      nav .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
       }
 
-      nav ul li {
-        margin: 0 10px;
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
       }
 
       nav ul li a {
-        color: #fff;
         text-decoration: none;
-        font-size: 16px;
-        padding: 15px;
-        transition: all 0.3s ease;
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 10px 14px;
+        border-radius: 8px;
+        transition: background-color 0.2s;
       }
 
       nav ul li a:hover {
-        background-color: #32bbe8;
+        background-color: rgba(59, 130, 246, 0.1);
       }
 
-      nav ul li.active a {
-        background-color: #666;
+      main {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
       }
 
-      nav ul li.active a:hover {
-        background-color: #999;
+      footer {
+        background-color: var(--footer-bg);
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: var(--muted-color);
+        margin-top: 40px;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav ul {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        nav ul li {
+          width: 100%;
+        }
+
+        nav ul li a {
+          display: block;
+          width: 100%;
+        }
       }
     </style>
   </head>
   <body>
     <header>
       <nav>
+        <div class="logo">Balliego</div>
         <ul>
           {% if user.is_authenticated %}
-          <li>Olá, {{ user.username }}</li>
+          <li><a href="#">Olá, {{ user.username }}</a></li>
           <li><a href="{% url 'new_car' %}">Cadastrar Carro</a></li>
-
-          {% else %} {% endif %} {% if not user.is_authenticated %}
+          {% else %}
           <li><a href="{% url 'register' %}">Cadastre-se</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
           {% endif %}
           <li><a href="{% url 'cars_list' %}">Carros</a></li>
-
           {% if user.is_authenticated %}
           <li><a href="{% url 'logout' %}">Sair</a></li>
           {% endif %}
@@ -88,10 +123,10 @@
       </nav>
     </header>
 
-    <main>{% block content %} {% endblock %}</main>
+    <main>{% block content %}{% endblock %}</main>
 
     <footer>
-      <p>&copy; 2025 Balliego Multimarcas</p>
+      <p>&copy; 2025 Balliego Multimarcas. Todos os direitos reservados.</p>
     </footer>
   </body>
 </html>
