@@ -67,3 +67,22 @@ cp .env.example .env
 # 5. Aplique migrações e rode o servidor
 python manage.py migrate
 python manage.py runserver
+```
+
+
+📁 Estrutura do Projeto:
+
+revenda-carros/
+├── carros/               # App principal
+├── openai_api/           # Geração de argumentos via OpenAI
+├── templates/            # HTML com estrutura moderna
+├── static/               # Imagens, CSS, JS
+├── .env.example          # Variáveis de ambiente de exemplo
+├── requirements.txt
+└── manage.py
+
+
+
+
+
+
