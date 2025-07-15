@@ -82,6 +82,12 @@ revenda-carros/
 └── manage.py
 
 
+📸 Demonstração:
+
+<img width="1887" height="923" alt="Captura de tela 2025-07-15 075117" src="https://github.com/user-attachments/assets/94ddc77d-f7e2-452c-9a16-6ab5c5bb63e4" />
+
+<img width="1882" height="918" alt="Captura de tela 2025-07-15 075144" src="https://github.com/user-attachments/assets/962ac5cc-4ebc-4e95-aa5f-8996f36b1545" />
+
 
 
 
